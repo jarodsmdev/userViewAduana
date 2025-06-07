@@ -1,0 +1,52 @@
+html,
+body {
+    height: 100%;
+}
+.request-card {
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.request-card:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.status-badge {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.btn-action {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+
+.container-fluid {
+    min-height: 100vh;
+}
+
+.request-card {
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.request-card:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.status-badge {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.btn-action {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+#sidebar {
+    min-height: 100vh;
+}

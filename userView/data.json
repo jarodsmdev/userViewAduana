@@ -1,0 +1,127 @@
+{
+  "solicitudes": [
+    {
+      "id": "AD-2023-001",
+      "usuario": {
+        "rut": "12345678-9",
+        "nombre": "Juan Pérez",
+        "email": "juan.perez@example.com",
+        "telefono": "+56912345678"
+      },
+      "estado": "en_revision",
+      "fecha_creacion": "2023-11-15T10:30:00Z",
+      "fecha_actualizacion": "2023-11-18T14:15:00Z",
+      "detalles": {
+        "tipo_mercancia": "electronicos",
+        "descripcion": "Importación de equipos electrónicos para proyecto educativo",
+        "peso_kg": 25.5,
+        "valor_aduana_clp": 11500,
+        "origen": "Estados Unidos",
+        "destino": "Chile",
+        "tipo_operacion": "importacion"
+      },
+      "documentacion": [
+        {
+          "tipo": "identificacion",
+          "nombre": "carnet_identidad.pdf",
+          "formato": "pdf",
+          "url": "/uploads/AD-2023-001/carnet_identidad.pdf",
+          "fecha_subida": "2023-11-15T10:32:45Z"
+        },
+        {
+          "tipo": "factura_comercial",
+          "nombre": "factura_electronica.docx",
+          "formato": "docx",
+          "url": "/uploads/AD-2023-001/factura_electronica.docx",
+          "fecha_subida": "2023-11-15T10:35:22Z"
+        },
+        {
+          "tipo": "fotografia_productos",
+          "nombre": "productos_electronicos.jpg",
+          "formato": "jpg",
+          "url": "/uploads/AD-2023-001/productos_electronicos.jpg",
+          "fecha_subida": "2023-11-16T09:15:33Z"
+        }
+      ],
+      "historial": [
+        {
+          "fecha": "2023-11-15T10:30:00Z",
+          "accion": "creacion",
+          "usuario": "juan.perez@example.com",
+          "comentario": "Solicitud creada por el usuario"
+        },
+        {
+          "fecha": "2023-11-18T14:15:00Z",
+          "accion": "actualizacion",
+          "usuario": "sistema",
+          "comentario": "Documentación adicional recibida"
+        }
+      ]
+    },
+    {
+      "id": "AD-2023-002",
+      "usuario": {
+        "rut": "98765432-1",
+        "nombre": "María González",
+        "email": "maria.gonzalez@example.com",
+        "telefono": "+56987654321"
+      },
+      "estado": "aprobado",
+      "fecha_creacion": "2023-11-10T08:45:00Z",
+      "fecha_actualizacion": "2023-11-14T16:20:00Z",
+      "detalles": {
+        "tipo_mercancia": "textiles",
+        "descripcion": "Exportación de tejidos artesanales",
+        "peso_kg": 8.2,
+        "valor_aduana_clp": 32598,
+        "origen": "Chile",
+        "destino": "España",
+        "tipo_operacion": "exportacion"
+      },
+      "documentacion": [
+        {
+          "tipo": "registro_comercio",
+          "nombre": "registro_comercial.pdf",
+          "formato": "pdf",
+          "url": "/uploads/AD-2023-002/registro_comercial.pdf",
+          "fecha_subida": "2023-11-10T08:48:12Z"
+        },
+        {
+          "tipo": "certificado_origen",
+          "nombre": "certificado_origen.png",
+          "formato": "png",
+          "url": "/uploads/AD-2023-002/certificado_origen.png",
+          "fecha_subida": "2023-11-12T11:25:18Z"
+        }
+      ],
+      "historial": [
+        {
+          "fecha": "2023-11-10T08:45:00Z",
+          "accion": "creacion",
+          "usuario": "maria.gonzalez@example.com",
+          "comentario": "Solicitud inicial creada"
+        },
+        {
+          "fecha": "2023-11-14T16:20:00Z",
+          "accion": "aprobacion",
+          "usuario": "agente_aduanero@aduana.cl",
+          "comentario": "Documentación completa y en orden"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "total_solicitudes": 2,
+    "solicitudes_pendientes": 1,
+    "solicitudes_aprobadas": 1,
+    "formatos_documentos_permitidos": ["pdf", "jpg", "jpeg", "png", "docx", "xlsx", "txt"],
+    "tipos_documentos_requeridos": [
+      "identificacion",
+      "factura_comercial",
+      "certificado_origen",
+      "registro_comercio",
+      "permiso_especial"
+    ],
+    "ultima_actualizacion": "2023-11-18T14:15:00Z"
+  }
+}
