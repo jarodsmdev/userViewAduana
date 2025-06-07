@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    // Resto de funciones auxiliares (se mantienen igual)
+    // Resto de funciones auxiliares
     function showValidationFeedback(element, isValid, message) {
         if (isValid) {
             element.style.display = 'block';
