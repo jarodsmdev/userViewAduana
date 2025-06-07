@@ -35,6 +35,6 @@
          * @param {string} message - Mensaje de éxito
          */
         showSuccess: function (message) {
-            return this.showAlert('Registro Exitoso', message, 'success');
+            return this.showAlert('Solicitud Exitosa', message, 'success');
         }
     };
