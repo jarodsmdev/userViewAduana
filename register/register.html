@@ -22,12 +22,14 @@
                         <label for="firstName" class="form-label">Nombres</label>
                         <input type="text" class="form-control" id="firstName" required>
                         <div class="invalid-feedback">
-                            Please choose a username.
+                            Ingrese su nombre.
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="lastName" class="form-label">Apellidos</label>
                         <input type="text" class="form-control" id="lastName" required>
+                        <div class="invalid-feedback">
+                            Ingrese sus apellidos.
                     </div>
                 </div>
 
@@ -35,6 +37,9 @@
                     <label for="rut" class="form-label">RUT (sin puntos ni guión)</label>
                     <input type="text" class="form-control" id="rut" placeholder="12345678K" required>
                     <div class="form-text">Ejemplo: 12345678K</div>
+                    <div class="invalid-feedback">
+                        Ingrese un RUT válido.
+                    </div>
                 </div>
 
                 <div class="mb-3">
@@ -49,6 +54,9 @@
                     required
                     autocomplete="off"
                     >
+                    <div class="invalid-feedback">
+                        Ingrese un correo electrónico válido.
+                    </div>
                 </div>
 
                 <div class="mb-3">
@@ -87,9 +95,9 @@
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
         crossorigin="anonymous"></script>
     <!-- Custom JavaScript -->
-    <script src="../globalFuntions/notificationAlerts.js"></script>
+    <script src="../assets/fieldValidations.js"></script>
+    <script src="../assets/notificationAlerts.js"></script>
     <script src="./app.js"></script>
-    <script src="../fieldValidations.js"></script>
     <!-- SwettAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
