@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //Obtener parámetros de la URL
     const emailFromUrl = getQueryParam('email'); // Recupera el email de la URL
-    if (emailFromUrl){
+    if (emailFromUrl) {
         userEmailSpan.textContent = `${emailFromUrl}.`;
     }
 
@@ -46,11 +46,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Ejemplo de simulación de validación
         if (enteredCode === '123456') { // Código de ejemplo para éxito
-            // Usando el módulo de notificación globalmente disponible
-            notification.showSuccess('El código ha sido validado correctamente.').then(() => {
-                // Redirigir o realizar otra acción después de la validación exitosa
-                // window.location.href = 'pagina-de-exito.html';
-            });
+            notification.showAlert(
+                'Código validado',
+                'El código ha sido validado correctamente. Redirigiendo al login...',
+                'success',
+                {
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar: true,
+                    willClose: () => {
+                        window.location.href = '../index.html'; // Ajustar la ruta 
+                    }
+                }
+            );
         } else {
             // Usando el módulo de notificación globalmente disponible
             notification.showError('El código ingresado no es válido. Intenta de nuevo.');
