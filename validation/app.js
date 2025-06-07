@@ -2,12 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const codeInputs = document.querySelectorAll('.code-input');
     const verificationForm = document.getElementById('verificationForm');
     const userEmailSpan = document.getElementById('userEmail');
-    //codeInputs[0].focus(); // Regresa el foco al primer input
 
-    // Recupera el email de localStorage si existe
-    const userEmail = localStorage.getItem('userEmail');
-    if (userEmail) {
-        userEmailSpan.textContent = ` a ${userEmail}.`;
+    //Obtener parámetros de la URL
+    const emailFromUrl = getQueryParam('email'); // Recupera el email de la URL
+    if (emailFromUrl){
+        userEmailSpan.textContent = `${emailFromUrl}.`;
     }
 
     codeInputs.forEach((input, index) => {
@@ -62,18 +61,24 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('resendCode').addEventListener('click', (e) => {
         e.preventDefault();
         // Usando el módulo de notificación globalmente disponible
-        notification.showAlert('Reenviar Código', 'Se ha enviado un nuevo código a tu correo electrónico.', 'info', {
+        notification.showAlert('Reenviar Código', 'Se ha enviado un nuevo código a tu correo electrónico a ' + emailFromUrl, 'info', {
             showConfirmButton: false,
             timer: 2000
-            
+
         });
         borrarCasillas() // Limpiar las casillas de entrada
         // Aquí podrías añadir una llamada a la API para reenviar el código
     });
 
-    function borrarCasillas(){
+    function borrarCasillas() {
         codeInputs.forEach(input => {
             input.value = ''; // Simplemente limpia el valor de cada input
         });
+    }
+
+    // Función para obtener parámetros de la URL
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
     }
 });
