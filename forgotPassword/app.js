@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 {
                     showConfirmButton: false,
                     timer: 2000,
+                    timerProgressBar: true,
                     willClose: () => {
                         window.location.href = '../resetPassword/resetPassword.html';
                     }
