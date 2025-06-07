@@ -134,6 +134,10 @@ document.addEventListener('DOMContentLoaded', function () {
             notification.showError('La fecha de nacimiento es obligatoria');
             birthDateInput.focus();
             return;
+        } else if (isFutureDate(birthDateInput.value)) {
+            notification.showError('La fecha de nacimiento no puede ser futura');
+            birthDateInput.focus();
+            return;
         }
 
         if (!emailInput.value.trim()) {
@@ -179,6 +183,19 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(() => {
                 registerForm.submit(); // Descomentar para enviar realmente
             });
+    }
+
+    function isFutureDate(dateString) {
+        if (!dateString) return false; // Si no hay fecha, consideramos inválido
+
+        const selectedDate = new Date(dateString);
+        const today = new Date();
+
+        // Normalizamos las fechas para comparar solo día, mes y año
+        selectedDate.setHours(0, 0, 0, 0);
+        today.setHours(0, 0, 0, 0);
+
+        return selectedDate > today; // true si la fecha es FUTURA
     }
 
     // Event listeners (se mantienen igual)
