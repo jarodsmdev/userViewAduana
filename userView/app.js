@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const requestDetailModal = new bootstrap.Modal(requestDetailModalElement); // Instancia del modal de Bootstrap
     const detailModalTitle = document.getElementById('detailModalTitle');
     const detailContent = document.getElementById('detailContent');
+    const btnCerrarSesion = document.getElementById('logoutButton'); // Botón de cerrar sesión
 
 
     let allRequestsData = []; // Para almacenar todas las solicitudes
@@ -284,6 +285,25 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             if (form) form.reportValidity(); // Muestra los mensajes de error de HTML5
         }
+    });
+
+    // Listener para el botón de cerrar sesión
+    btnCerrarSesion.addEventListener('click', () => {
+        Swal.fire({
+            title: '¿Cerrar sesión?',
+            text: "¿Estás seguro de que deseas cerrar sesión?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Sí, cerrar sesión',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Aquí iría la lógica para cerrar sesión, como redirigir al login
+                window.location.href = '../index.html'; // Cambia a tu ruta de login
+            }
+        });
     });
 
 });
