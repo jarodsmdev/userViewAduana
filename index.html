@@ -19,15 +19,16 @@
             <form class="needs-validation" novalidate>
                 <div class="mb-3">
                     <label for="email" class="form-label">Correo Electrónico</label>
-                    <input type="email" class="form-control" id="email" placeholder="nombre@dominio.com" required autocomplete=off>
+                    <input type="email" class="form-control" id="email" placeholder="nombre@dominio.com" required
+                        autocomplete=off>
                     <div class="invalid-feedback">
                         Correo Electrónico es obligatorio.
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="password" required autocomplete="off" placeholder="Contraseña"
-                        autocorrect="off" autocapitalize="off" spellcheck="false">
+                    <input type="password" class="form-control" id="password" required autocomplete="off"
+                        placeholder="Contraseña" autocorrect="off" autocapitalize="off" spellcheck="false">
                     <div class="invalid-feedback">
                         Contraseña es obligatoria.
                     </div>
@@ -36,7 +37,7 @@
                     <input type="checkbox" class="form-check-input" id="remember">
                     <label class="form-check-label" for="remember">Recordarme</label>
                 </div>
-                <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+                <button type="submit" class="btn btn-primary w-100" id="login">Ingresar</button>
                 <div class="text-center mt-3">
                     <a href="./forgotPassword/forgotPassword.html">¿Olvidaste tu contraseña?</a>
                 </div>
@@ -51,7 +52,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
         crossorigin="anonymous"></script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Validación de campos -->
     <script src="./assets/fieldValidations.js"></script>
+    <script src="./app.js"></script>
 </body>
 
 </html>
