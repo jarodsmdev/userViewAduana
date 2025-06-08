@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./styles.css">
+    <title>Nueva Solicitud</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row h-100">
+            <!-- Sidebar -->
+            <nav id="sidebar" class="col-12 col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse min-vh-100">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active text-white" href="#">
+                                <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="../userView.html">
+                                <i class="fas fa-file-alt me-2"></i>Mis Solicitudes
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">
+                                <i class="fas fa-cog me-2"></i>Configuración
+                            </a>
+                        </li>
+                        <hr>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#" id="logoutButton">
+                                <i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- Contenedor del formulario -->
+            <div class="form-container col-12 col-md-9 col-lg-10">
+                <h1 class="h2 mt-5">
+                    <i class="fas fa-file-import me-2"></i> Nueva Solicitud Aduanera
+                </h1>
+                <hr>
+                <form id="requestForm">
+                    <!-- Sección 1: Información básica -->
+                    <div class="row mb-4">
+                        <h5 class="mb-3">
+                            <i class="fas fa-info-circle me-2"></i>Información Básica
+                        </h5>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="merchandiseType" class="form-label required-field">Tipo de Mercancía</label>
+                            <select class="form-select" id="merchandiseType" required>
+                                <option value="">Seleccionar...</option>
+                                <option value="electronics">Electrónicos</option>
+                                <option value="textiles">Textiles</option>
+                                <option value="food">Alimentos</option>
+                                <option value="machinery">Maquinaria</option>
+                                <option value="chemicals">Productos Químicos</option>
+                                <option value="vehicles">Vehículos</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="weight" class="form-label required-field">Peso (kg)</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="weight" min="0.1" step="0.1" required>
+                                <span class="input-group-text">kg</span>
+                            </div>
+                        </div>
+
+                        <div class="col-12 mb-3">
+                            <label for="description" class="form-label required-field">Descripción Detallada</label>
+                            <textarea class="form-control" id="description" rows="3"
+                                placeholder="Describa la mercancía con el mayor detalle posible..." required></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Sección 2: Origen y Destino -->
+                    <hr>
+                    <div class="row mb-4">
+                        <h5 class="mb-3">
+                            <i class="fas fa-globe-americas me-2"></i>Origen y Destino
+                        </h5>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="origin" class="form-label required-field">País de Origen</label>
+                            <input type="text" class="form-control" id="origin" placeholder="Ej: China" required>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="destination" class="form-label required-field">País de Destino</label>
+                            <input type="text" class="form-control" id="destination" placeholder="Ej: Chile" required>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="transport" class="form-label">Medio de Transporte</label>
+                            <select class="form-select" id="transport">
+                                <option value="air">Aéreo</option>
+                                <option value="maritime">Marítimo</option>
+                                <option value="land">Terrestre</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="estimatedDate" class="form-label">Fecha Estimada de Arribo</label>
+                            <input type="date" class="form-control" id="estimatedDate">
+                        </div>
+                    </div>
+
+                    <!-- Sección 3: Documentación -->
+                    <hr>
+                    <div class="mb-4">
+                        <h5 class="mb-3">
+                            <i class="fas fa-file-upload me-2"></i>Documentación Adjunta
+                        </h5>
+                        <div class="mb-3">
+                            <label class="form-label required-field">Documentos Obligatorios</label>
+                            <div class="file-upload mb-2" id="documentsDropzone">
+                                <i class="fas fa-cloud-upload-alt fa-2x mb-2"></i>
+                                <p>Arrastra tus archivos aquí o haz clic para seleccionar</p>
+                                <small class="text-muted">Formatos aceptados: PDF, JPG, PNG (Máx. 5MB cada uno)</small>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <input class="form-control" type="file" id="documents" multiple required>
+                            <a class="btn btn-danger ms-2 text-nowrap" id="clearFilesButton">
+                                <i class="fas fa-trash-alt"></i> borrar todos
+                            </a>
+                            </div>
+                            <div id="fileList" class="mt-2"></div>
+                        </div>
+                        <hr>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="declaration" required>
+                            <label class="form-check-label" for="declaration">
+                                Declaro que toda la información proporcionada es verídica y acepto los términos del
+                                servicio
+                            </label>
+                        </div>
+                    </div>
+
+
+                    <!-- Botones de acción -->
+                    <div class="d-flex justify-content-between">
+                        <a class="btn btn-outline-secondary" id="cancelButton" href="#">
+                            <i class="fas fa-times me-1"></i> Cancelar
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane me-1"></i> Enviar Solicitud
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <!-- Bootstrap JS Bundle + Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Custom JS -->
+    <script src="./app.js"></script>
+</body>
+
+</html>
