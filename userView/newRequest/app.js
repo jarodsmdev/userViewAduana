@@ -75,7 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Manejo de arrastrar y soltar
-
     dropzone.addEventListener('click', () => fileInput.click());
     dropzone.addEventListener('dragover', (e) => {
         e.preventDefault();
@@ -105,7 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     //Primero debe preguntar si se está seguro de borrar todos los archivos
-
     clearFilesButton.addEventListener('click', () => {
         Swal.fire({
             title: '¿Desea quitar todos los archivos adjuntos?',

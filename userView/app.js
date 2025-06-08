@@ -76,9 +76,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     <button class="btn btn-sm btn-outline-primary btn-action view-details" data-id="${request.id}">
                         <i class="fas fa-eye me-1"></i> Ver Detalles
                     </button>
-                    <button class="btn btn-sm btn-outline-secondary btn-action edit-request" data-id="${request.id}">
-                        <i class="fas fa-edit me-1"></i> Modificar
-                    </button>
+                    <button class="btn btn-sm btn-outline-secondary btn-action edit-request" data-id="${request.id}" 
+                    ${request.estado !== 'en_revision' ? 'disabled' : ''}>
+                    <i class="fas fa-edit me-1"></i> Modificar
+                </button>
                     <button class="btn btn-sm btn-outline-danger btn-action delete-request" data-id="${request.id}">
                         <i class="fas fa-trash-alt me-1"></i> Eliminar
                     </button>
@@ -305,5 +306,31 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Listener para el botón modificar solicitud
+    document.addEventListener('click', function(e) {
+    if (e.target.closest('.edit-request')) {
+        e.preventDefault();
+        const button = e.target.closest('.edit-request');
+        const requestId = button.dataset.id;
+        
+        // Verificar si el botón está deshabilitado
+        if (button.disabled) {
+            Swal.fire({
+                icon: 'error',
+                title: 'No editable',
+                text: 'Solo se pueden editar solicitudes en estado "en revisión"',
+                confirmButtonText: 'Entendido'
+            });
+            return;
+        }
+        
+        // Guardar el ID de la solicitud a editar
+        localStorage.setItem('editingRequestId', requestId);
+        
+        // Redirigir a la página de edición
+        window.location.href = 'editRequest.html';
+    }
+});
 
 });
