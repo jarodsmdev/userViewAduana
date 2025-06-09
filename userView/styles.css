@@ -38,13 +38,14 @@ body {
 }
 
 .request-card:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.5);
 }
 
 .status-badge {
     font-size: 0.8rem;
     padding: 5px 10px;
     border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .btn-action {
@@ -52,6 +53,8 @@ body {
     margin-bottom: 5px;
 }
 
+/*
 #sidebar {
     min-height: 100vh
 }
+    */
