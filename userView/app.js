@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const requestDetailModal = new bootstrap.Modal(requestDetailModalElement); // Instancia del modal de Bootstrap
     const detailModalTitle = document.getElementById('detailModalTitle');
     const detailContent = document.getElementById('detailContent');
-    const btnCerrarSesion = document.getElementById('logoutButton'); // Botón de cerrar sesión
+    const btnCerrarSesionNav = document.getElementById('logoutButton'); // Botón de cerrar sesión
+    const btnCerrarSesionSide = document.getElementById('logoutButtonSideBar');
 
 
     let allRequestsData = []; // Para almacenar todas las solicitudes
@@ -289,7 +290,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Listener para el botón de cerrar sesión
-    btnCerrarSesion.addEventListener('click', () => {
+    btnCerrarSesionNav.addEventListener('click', () => {
+        closeSession();
+    });
+
+    btnCerrarSesionSide.addEventListener('click', () => {
+        closeSession();
+    })
+
+
+    function closeSession(){
         Swal.fire({
             title: '¿Cerrar sesión?',
             text: "¿Estás seguro de que deseas cerrar sesión?",
@@ -305,7 +315,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.location.href = '../index.html'; // Cambia a tu ruta de login
             }
         });
-    });
+    }    
+
 
     // Listener para el botón modificar solicitud
     document.addEventListener('click', function(e) {
