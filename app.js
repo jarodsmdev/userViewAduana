@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnLogin = $('login');
 
     // Añadimos el evento de clic al botón de login
-    btnLogin.addEventListener('click', (event) =>{
+    btnLogin.addEventListener('click', (event) => {
         //event.preventDefault(); // Prevenir el envío del formulario
 
         // Validar campos
@@ -24,7 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
         Swal.fire({
             icon: 'success',
             title: 'Éxito',
-            text: 'Has iniciado sesión correctamente.'
+            text: 'Has iniciado sesión correctamente.',
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true
         }).then(() => {
             window.location.href = './userView/userView.html'; // Redirigir a la vista de usuario
         });
