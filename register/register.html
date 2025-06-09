@@ -20,72 +20,68 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="firstName" class="form-label">Nombres</label>
-                        <input type="text" class="form-control" id="firstName" required>
+                        <input type="text" class="form-control" id="firstName" minlength="1" maxlength="30" required>
                         <div class="invalid-feedback">
                             Ingrese su nombre.
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="lastName" class="form-label">Apellidos</label>
-                        <input type="text" class="form-control" id="lastName" required>
+                        <input type="text" class="form-control" id="lastName" minlength="1" maxlength="30" required>
                         <div class="invalid-feedback">
                             Ingrese sus apellidos.
+                        </div>
                     </div>
-                </div>
 
-                <div class="mb-3">
-                    <label for="rut" class="form-label">RUT (sin puntos ni guión)</label>
-                    <input type="text" class="form-control" id="rut" placeholder="12345678K" required>
-                    <div class="form-text">Ejemplo: 12345678K</div>
-                    <div class="invalid-feedback">
-                        Ingrese un RUT válido.
+                    <div class="mb-3">
+                        <label for="rut" class="form-label">RUT (sin puntos ni guión)</label>
+                        <input type="text" class="form-control" id="rut" placeholder="12345678K" minlength="9"
+                            maxlength="10" required>
+                        <div class="form-text">Ejemplo: 12345678K</div>
+                        <div class="invalid-feedback">
+                            Ingrese un RUT válido.
+                        </div>
                     </div>
-                </div>
 
-                <div class="mb-3">
-                    <label for="birthDate" class="form-label">Fecha de Nacimiento</label>
-                    <input type="date" class="form-control" id="birthDate" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="email" class="form-label">Correo Electrónico</label>
-                    <input type="email" class="form-control" id="email" name="email"
-                    placeholder="nombre@dominio.com"
-                    required
-                    autocomplete="off"
-                    >
-                    <div class="invalid-feedback">
-                        Ingrese un correo electrónico válido.
+                    <div class="mb-3">
+                        <label for="birthDate" class="form-label">Fecha de Nacimiento</label>
+                        <input type="date" class="form-control" id="birthDate" required>
                     </div>
-                </div>
 
-                <div class="mb-3">
-                    <label for="password" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="password" name="new-password"
-                    required
-                    autocomplete="new-password"
-                    >
-                    <div class="form-text">Mínimo 8 caracteres, incluyendo mayúsculas, minúsculas y números</div>
-                </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Correo Electrónico</label>
+                        <input type="email" class="form-control" id="email" name="email"
+                            placeholder="nombre@dominio.com" required autocomplete="off" minlength="3" maxlength="30">
+                        <div class="invalid-feedback">
+                            Ingrese un correo electrónico válido.
+                        </div>
+                    </div>
 
-                <div class="mb-3">
-                    <label for="confirmPassword" class="form-label">Confirmar Contraseña</label>
-                    <input type="password" class="form-control" id="confirmPassword" name="confirm-password" required
-                        autocomplete="new-password" readonly onfocus="this.removeAttribute('readonly')">
-                    <span id="passwordMatch" class="password-match">✓ Las contraseñas coinciden</span>
-                    <span id="passwordMismatch" class="password-mismatch">✗ Las contraseñas no coinciden</span>
-                </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" id="password" name="new-password" required
+                            autocomplete="new-password" minlength="1" maxlength="30">
+                        <div class="form-text">Mínimo 8 caracteres, incluyendo mayúsculas, minúsculas y números</div>
+                    </div>
 
-                <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="terms" required>
-                    <label class="form-check-label" for="terms">Acepto los términos y condiciones</label>
-                </div>
+                    <div class="mb-3">
+                        <label for="confirmPassword" class="form-label">Confirmar Contraseña</label>
+                        <input type="password" class="form-control" id="confirmPassword" name="confirm-password"
+                            required autocomplete="off" minlength="1" maxlength="30">
+                        <span id="passwordMatch" class="password-match">✓ Las contraseñas coinciden</span>
+                        <span id="passwordMismatch" class="password-mismatch">✗ Las contraseñas no coinciden</span>
+                    </div>
 
-                <button type="submit" class="btn btn-primary w-100">Registrarse</button>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="terms" required>
+                        <label class="form-check-label" for="terms">Acepto los términos y condiciones</label>
+                    </div>
 
-                <div class="text-center mt-3">
-                    <p>¿Ya tienes una cuenta? <a href="../index.html">Inicia sesión</a></p>
-                </div>
+                    <button type="submit" class="btn btn-primary w-100">Registrarse</button>
+
+                    <div class="text-center mt-3">
+                        <p>¿Ya tienes una cuenta? <a href="../index.html">Inicia sesión</a></p>
+                    </div>
             </form>
         </div>
     </div>
