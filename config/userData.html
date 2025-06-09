@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Datos - Servicio de Aduana</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./styles.css">
+
+</head>
+
+<body>
+    <!-- Navbar móvil -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-md-none">
+        <div class="container">
+            <a class="navbar-brand" href="#">Servicio de Aduana</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../userView/userView.html">
+                            <i class="fas fa-file-alt"></i> Mis Solicitudes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            <i class="fas fa-user"></i> Mis Datos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="logoutButton">
+                            <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row h-100">
+            <!-- Sidebar -->
+            <nav id="sidebar"
+                class="navbar-dark bg-dark col-12 col-md-3 col-lg-2 d-md-block sidebar collapse min-vh-100">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">
+                                <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="../userView/userView.html">
+                                <i class="fas fa-file-alt me-2"></i>Mis Solicitudes
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active text-white" href="#">
+                                <i class="fas fa-user me-2"></i>Mis Datos
+                            </a>
+                        </li>
+                        <hr>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#" id="logoutButton2">
+                                <i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4 my-3">
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Mis Datos Personales</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <button class="btn btn-sm btn-outline-secondary" id="editProfileBtn">
+                            <i class="fas fa-edit me-1"></i> Editar Perfil
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Encabezado del perfil -->
+                <div class="profile-header text-center">
+                    <div class="d-flex justify-content-center mb-3">
+                        <img src="https://ui-avatars.com/api/?name=Juan+Perez&background=random" alt="Foto de perfil"
+                            class="profile-pic" id="profilePicture">
+                    </div>
+                    <h3 id="userFullName">Juan Pérez González</h3>
+                    <p class="text-muted" id="userEmail">juan.perez@example.com</p>
+                    <input type="file" id="profilePictureInput" accept="image/*" style="display: none;">
+                </div>
+
+                <!-- Sección de Información Personal -->
+                <div class="card section-card">
+                    <div class="card-body">
+                        <h5 class="section-title">
+                            <i class="fas fa-id-card me-2"></i>Información Personal
+                        </h5>
+                        <form id="personalInfoForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Nombres</label>
+                                    <input type="text" class="form-control" id="firstName" value="Juan" readonly>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Apellidos</label>
+                                    <input type="text" class="form-control" id="lastName" value="Pérez González"
+                                        readonly>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">RUT</label>
+                                    <div class="form-control-plaintext" id="rutDisplay">12.345.678-9</div>
+                                    <input type="hidden" id="rut" value="12.345.678-9">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Fecha de Nacimiento</label>
+                                    <input type="date" class="form-control" id="birthDate" value="1985-05-15" readonly>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Género</label>
+                                    <select class="form-select" id="gender" disabled>
+                                        <option value="male">Masculino</option>
+                                        <option value="female">Femenino</option>
+                                        <option value="other">Otro</option>
+                                        <option value="none">Prefiero no decir</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Nacionalidad</label>
+                                    <input type="text" class="form-control" id="nationality" value="Chilena" readonly>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Sección de Información de Contacto -->
+                <div class="card section-card">
+                    <div class="card-body">
+                        <h5 class="section-title">
+                            <i class="fas fa-address-book me-2"></i>Información de Contacto
+                        </h5>
+                        <form id="contactInfoForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Correo Electrónico</label>
+                                    <input type="email" class="form-control" id="email" value="juan.perez@example.com"
+                                        readonly>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Teléfono</label>
+                                    <input type="tel" class="form-control" id="phone" value="+56912345678" readonly>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Dirección</label>
+                                    <input type="text" class="form-control" id="address"
+                                        value="Av. Libertador Bernardo O'Higgins 123" readonly>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label">Ciudad</label>
+                                    <input type="text" class="form-control" id="city" value="Santiago" readonly>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label">Región</label>
+                                    <input type="text" class="form-control" id="region" value="Metropolitana" readonly>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Sección de Documentos -->
+                <div class="card section-card">
+                    <div class="card-body">
+                        <h5 class="section-title">
+                            <i class="fas fa-file-alt me-2"></i>Documentos Adjuntos
+                        </h5>
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Tipo</th>
+                                        <th>Documento</th>
+                                        <th>Fecha de Subida</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="documentsTable">
+                                    <tr>
+                                        <td>Identificación</td>
+                                        <td>Cédula de Identidad.pdf</td>
+                                        <td>15/05/2023</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary">
+                                                <i class="fas fa-download"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Comprobante de Domicilio</td>
+                                        <td>Boleta Servicios.pdf</td>
+                                        <td>20/05/2023</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary">
+                                                <i class="fas fa-download"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <button class="btn btn-sm btn-primary mt-2" id="addDocumentBtn">
+                            <i class="fas fa-plus me-1"></i>Agregar Documento
+                        </button>
+                    </div>
+                    
+                </div>
+                <!-- Sección de Botones de Acción -->
+                <div class="card section-card">
+                    <div class="card-body">
+                        <h5 class="section-title">
+                            <i class="fas fa-cogs me-2"></i>Acciones
+                        </h5>
+                        <p class="text-muted mb-3">
+                            Aquí puedes Cambiar tu contraseña o eliminar tu cuenta.
+                        </p>
+                        <button class="btn btn-secondary" id="changePasswordBtn">
+                            <i class="fas fa-lock me-1"></i> Cambiar Contraseña
+                        </button>
+                        <button class="btn btn-danger" id="deleteAccountBtn">
+                            <i class="fas fa-trash me-1"></i> Eliminar Cuenta
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Botones de acción -->
+                <div class="d-flex justify-content-end gap-2 mt-4">
+                    <button class="btn btn-secondary" id="cancelEditBtn" style="display: none;">
+                        Cancelar
+                    </button>
+                    <button class="btn btn-primary" id="saveChangesBtn" style="display: none;">
+                        Guardar Cambios
+                    </button>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modal para agregar documentos -->
+    <div class="modal fade" id="addDocumentModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Agregar Documento</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="documentUploadForm">
+                        <div class="mb-3">
+                            <label class="form-label">Tipo de Documento</label>
+                            <select class="form-select" id="documentType">
+                                <option value="identification">Identificación</option>
+                                <option value="address_proof">Comprobante de Domicilio</option>
+                                <option value="tax_id">RUT</option>
+                                <option value="other">Otro</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Archivo</label>
+                            <input type="file" class="form-control" id="documentFile" accept=".pdf,.jpg,.jpeg,.png">
+                            <div class="form-text">Formatos aceptados: PDF, JPG, PNG (Máx. 5MB)</div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="uploadDocumentBtn">Subir Documento</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle + Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Custom JS -->
+    <script src="./app.js"></script>
+</body>
+<footer class="text-center py-3">
+    <p>&copy; 2025 Leonel Briones Palacios. Todos los derechos reservados.</p>
+</footer>
+
+</html>
